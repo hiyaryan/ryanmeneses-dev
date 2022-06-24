@@ -6,9 +6,7 @@
       app
     >
       <v-toolbar-title v-text="title" />
-      <nav class="items-center justify-center hidden h-full lg:flex">
-
-      </nav>
+      <nav class="items-center justify-center hidden h-full lg:flex" />
       <v-spacer />
     </v-app-bar>
     <v-main>
@@ -38,11 +36,6 @@ export default {
           icon: 'mdi-apps',
           title: 'Home',
           to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
         }
       ],
       miniVariant: false,

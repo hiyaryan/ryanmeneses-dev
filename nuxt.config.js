@@ -21,6 +21,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
+      // This is where the tab icon goes
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
