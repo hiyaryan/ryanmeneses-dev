@@ -1,18 +1,51 @@
 <template>
-  <v-card elevation="2" class="card">
-    <h2>Note Card Title</h2>
-    <v-divider />
-    <h4>Note Card Topic</h4>
-    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, aperiam architecto, aspernatur assumenda aut distinctio eaque error expedita illum modi natus non nostrum quae quaerat, quasi recusandae rerum tenetur vitae?</span><span>Aperiam atque autem delectus dolor ducimus eum explicabo fugit hic incidunt laboriosam magnam nemo neque obcaecati officiis porro quod reiciendis repudiandae saepe sed sit, totam unde vero! Maxime natus, sit?</span><span>Aliquid consequuntur error explicabo facilis hic illum molestias non optio, quae sapiente veritatis vero? Commodi consequuntur distinctio doloremque expedita fugiat fugit impedit incidunt inventore iste libero placeat, provident quia quod.</span></p>
-  </v-card>
+  <v-container>
+    <div>
+      <div class="note-id">
+        {{ id }}
+      </div>
+      <div>
+        <v-card elevation="2" class="card">
+          <h2>
+            {{ title }}
+          </h2>
+          <v-divider />
+          <h4> {{ topic }} </h4>
+          <p>
+            {{ notes }}
+          </p>
+        </v-card>
+      </div>
+    </div>
+  </v-container>
 </template>
 
 <script>
 export default {
-  name: 'NoteCards'
+  name: 'NoteCards',
+  props: {
+    id: {
+      default: 0,
+      type: Number
+    },
+    title: {
+      default: '',
+      type: String
+    },
+    topic: {
+      default: '',
+      type: String
+    },
+    notes: {
+      default: '',
+      type: String
+    }
+  }
 }
 </script>
 
 <style scoped>
-
+  .note-id {
+    font-size: 1rem;
+  }
 </style>
