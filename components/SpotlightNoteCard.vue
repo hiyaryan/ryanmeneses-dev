@@ -5,7 +5,9 @@
       <h2> {{ getNoteCards[getNoteCards.length - 1].title }} </h2>
       <v-divider />
       <h4> {{ getNoteCards[getNoteCards.length - 1].topic }} </h4>
-      <p> {{ getNoteCards[getNoteCards.length - 1].notes }} </p>
+      <p v-for="note in getNoteCards[getNoteCards.length - 1].notes" :key="note" class="p-notes">
+        {{ note }}
+      </p>
     </v-card>
   </v-container>
 </template>
@@ -22,5 +24,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .p-notes {
+    margin-bottom: 1px;
+  }
 </style>

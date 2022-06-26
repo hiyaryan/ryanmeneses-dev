@@ -11,8 +11,8 @@
           </h2>
           <v-divider />
           <h4> {{ topic }} </h4>
-          <p>
-            {{ notes }}
+          <p v-for="note in notes" :key="note" class="p-notes">
+            {{ note }}
           </p>
         </v-card>
       </div>
@@ -37,8 +37,8 @@ export default {
       type: String
     },
     notes: {
-      default: '',
-      type: String
+      default: Array,
+      type: Array
     }
   }
 }
@@ -47,5 +47,9 @@ export default {
 <style scoped>
   .note-id {
     font-size: 1rem;
+  }
+
+  .p-notes {
+    margin-bottom: 1px;
   }
 </style>

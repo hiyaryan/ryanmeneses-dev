@@ -24,9 +24,10 @@ export default {
   emits: ['response'],
   data () {
     return {
+      id: 0,
       title: '',
       topic: '',
-      notes: ''
+      notes: []
     }
   },
   computed: {
@@ -39,7 +40,9 @@ export default {
     ...mapMutations(['addNoteCard']),
 
     submit () {
-      this.addNoteCard({ id: this.getNoteCards.length, title: this.title, topic: this.topic, notes: this.notes })
+      const notes = []
+      notes.push(...this.notes.split(/\r?\n/))
+      this.addNoteCard({ id: this.getNoteCards.length + 1, title: this.title, topic: this.topic, notes })
     }
   }
 }

@@ -3,6 +3,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+  setNoteCards (state, noteCards) {
+    state.noteCards = noteCards
+  },
   addNoteCard (state, card) {
     const newCard = { id: card.id, title: card.title, topic: card.topic, notes: card.notes }
     state.noteCards.push(newCard)
