@@ -6,8 +6,16 @@
       app
     >
       <v-toolbar-title v-text="title" />
-      <nav class="items-center justify-center hidden h-full lg:flex" />
+      <nav class="items-center justify-center h-full lg:flex" />
       <v-spacer />
+      <div class="nav-items">
+        <NuxtLink to="/">
+          Home
+        </NuxtLink>
+        <NuxtLink to="/notes">
+          Notes
+        </NuxtLink>
+      </div>
     </v-app-bar>
     <v-main>
       <v-container>

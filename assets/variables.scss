@@ -6,4 +6,9 @@
 //$font-size-root: 100px;
 
 $body-font-family: 'Sans';
-$title-font: 'Sans'
+$title-font: 'Sans';
+
+.nav-items {
+  flex: auto;
+  align-content: center;
+}
