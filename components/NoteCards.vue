@@ -2,25 +2,36 @@
   <v-container>
     <div>
       <div class="note-id">
-        {{ id }}
+        [{{ id }}]
+        <a @click="editCard = !editCard">
+          Edit
+        </a>
       </div>
       <div>
         <v-card elevation="2" class="card">
-          <h2>
+          <h2 id="card-title">
             {{ title }}
           </h2>
           <v-divider />
-          <h4> {{ topic }} </h4>
-          <p v-for="note in notes" :key="note" class="p-notes">
+          <h4 id="card-topic">
+            {{ topic }}
+          </h4>
+          <p v-for="note in notes" :key="note" class="card-notes">
             {{ note }}
           </p>
         </v-card>
+        <v-overlay :value="editCard">
+          <a class="exit-overlay" @click="editCard = !editCard">X</a>
+          <NewNoteCard :id="id" :mode="mode" class="edit-note-card" @response="editCard = !editCard" />
+        </v-overlay>
       </div>
     </div>
   </v-container>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'NoteCards',
   props: {
@@ -40,6 +51,24 @@ export default {
       default: Array,
       type: Array
     }
+  },
+  data () {
+    return {
+      editCard: false,
+      mode: 'normal'
+    }
+  },
+  watch: {
+    editCard () {
+      if (this.editCard) {
+        this.mode = 'edit'
+      } else {
+        this.mode = 'normal'
+      }
+    }
+  },
+  methods: {
+    ...mapMutations(['editNoteCard'])
   }
 }
 </script>
@@ -49,7 +78,16 @@ export default {
     font-size: 1rem;
   }
 
-  .p-notes {
+  .card-notes {
     margin-bottom: 1px;
+  }
+
+  .edit-note-card {
+    width: 71rem;
+  }
+
+  .exit-overlay {
+    position: absolute;
+    right: 0;
   }
 </style>
